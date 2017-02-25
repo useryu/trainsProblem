@@ -1,4 +1,4 @@
-package com.fisher.graph;
+package com.fisher.graph.vo;
 
 import java.util.List;
 
@@ -39,6 +39,12 @@ public class ShortestPathBean {
 
 	public void setEndNode(String endNode) {
 		this.endNode = endNode;
+	}
+
+	@Override
+	public String toString() {
+		return "ShortestPathBean [shortestPathDistences=" + shortestPathDistences + ", shortestPath=" + shortestPath
+				+ ", startNode=" + startNode + ", endNode=" + endNode + "]";
 	}
 
 }

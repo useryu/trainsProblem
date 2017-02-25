@@ -1,27 +1,27 @@
-package com.fisher.graph;
+package com.fisher.graph.input;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class GraphDef {
 	
-	private int[][] map = {
-		{-1, 5, -1, 5, 7}, 
-		{-1, -1, 4, -1, -1},
-		{-1, -1, -1, 8, 2},
-		{-1, -1, 8, -1, 6},
-		{-1, 3, -1, -1, -1},
-    };
+	public static final int NO_PATH=-1;
+	
+	private int[][] map;
 
 	private List<String> nodeNames;
 	
 	public GraphDef() {
-		nodeNames=new ArrayList<String>(5);
-		nodeNames.add("A");
-		nodeNames.add("B");
-		nodeNames.add("C");
-		nodeNames.add("D");
-		nodeNames.add("E");
+	}
+	
+	public int getNodeIndexByName(String name) {
+		int index=0;
+		for(String n:nodeNames) {
+			if(name.equals(n)) {
+				return index;
+			}
+			index++;
+		}
+		return -1;
 	}
 	
 	public String getNodeNameAt(int index) {
@@ -29,12 +29,7 @@ public class GraphDef {
 	}
 	
 	public int[] getVectorsFor(String nodeName) {
-		for(int index=0;index<nodeNames.size();index++) {
-			if(nodeName.equals(nodeNames.get(index))) {
-				return map[index];
-			}
-		}
-		return null;
+		return map[this.getNodeIndexByName(nodeName)];
 	}
 
 	public int[][] getMap() {

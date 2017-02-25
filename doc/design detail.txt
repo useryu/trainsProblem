@@ -1,0 +1,2 @@
+Design:
+This is a weighted directed graph of the problem, the use of the depth of the project priority algorithm, the results obtained by traversing the graph.
